@@ -1,5 +1,3 @@
-import com.hankcs.hanlp.tokenizer.NLPTokenizer;
-import com.hankcs.hanlp.tokenizer.SpeedTokenizer;
 import org.junit.Test;
 import utils.*;
 
@@ -11,10 +9,10 @@ public class test {
 
         try {
 
-            String str1 = FileUtil.readFile2String("src/test/testdoc/orig.txt");
-            String str2 = FileUtil.readFile2String("src/test/testdoc/orig_0.8_add.txt");
+            String str1 = FileUtil.readFile2String("testdoc/orig.txt");
+            String str2 = FileUtil.readFile2String("testdoc/orig_0.8_add.txt");
 
-            System.out.println("1 " + CalculateDuplicateRateCos.calculateDuplicateRateCos(str1, str2));
+            System.out.println("1 " + DuplicateRateCalculator.calculateDuplicateRateCos(str1, str2));
         } catch (ReadStringException e) {
             e.printStackTrace();
         }
@@ -25,10 +23,10 @@ public class test {
 
         try {
 
-            String str1 = FileUtil.readFile2String("src/test/testdoc/orig.txt");
-            String str2 = FileUtil.readFile2String("src/test/testdoc/orig_0.8_del.txt");
+            String str1 = FileUtil.readFile2String("testdoc/orig.txt");
+            String str2 = FileUtil.readFile2String("testdoc/orig_0.8_del.txt");
 
-            System.out.println("2 " + CalculateDuplicateRateCos.calculateDuplicateRateCos(str1, str2));
+            System.out.println("2 " + DuplicateRateCalculator.calculateDuplicateRateCos(str1, str2));
         } catch (ReadStringException e) {
             e.printStackTrace();
         }
@@ -39,10 +37,10 @@ public class test {
 
         try {
 
-            String str1 = FileUtil.readFile2String("src/test/testdoc/orig.txt");
-            String str2 = FileUtil.readFile2String("src/test/testdoc/orig_0.8_dis_1.txt");
+            String str1 = FileUtil.readFile2String("testdoc/orig.txt");
+            String str2 = FileUtil.readFile2String("testdoc/orig_0.8_dis_1.txt");
 
-            System.out.println("3 " + CalculateDuplicateRateCos.calculateDuplicateRateCos(str1, str2));
+            System.out.println("3 " + DuplicateRateCalculator.calculateDuplicateRateCos(str1, str2));
         } catch (ReadStringException e) {
             e.printStackTrace();
         }
@@ -54,10 +52,10 @@ public class test {
 
         try {
 
-            String str1 = FileUtil.readFile2String("src/test/testdoc/orig.txt");
-            String str2 = FileUtil.readFile2String("src/test/testdoc/orig_0.8_dis_10.txt");
+            String str1 = FileUtil.readFile2String("testdoc/orig.txt");
+            String str2 = FileUtil.readFile2String("testdoc/orig_0.8_dis_10.txt");
 
-            System.out.println("4 " + CalculateDuplicateRateCos.calculateDuplicateRateCos(str1, str2));
+            System.out.println("4 " + DuplicateRateCalculator.calculateDuplicateRateCos(str1, str2));
         } catch (ReadStringException e) {
             e.printStackTrace();
         }
@@ -69,10 +67,10 @@ public class test {
 
         try {
 
-            String str1 = FileUtil.readFile2String("src/test/testdoc/orig.txt");
-            String str2 = FileUtil.readFile2String("src/test/testdoc/orig_0.8_dis_15.txt");
+            String str1 = FileUtil.readFile2String("testdoc/orig.txt");
+            String str2 = FileUtil.readFile2String("testdoc/orig_0.8_dis_15.txt");
 
-            System.out.println("5 " + CalculateDuplicateRateCos.calculateDuplicateRateCos(str1, str2));
+            System.out.println("5 " + DuplicateRateCalculator.calculateDuplicateRateCos(str1, str2));
         } catch (ReadStringException e) {
             e.printStackTrace();
         }
@@ -84,10 +82,10 @@ public class test {
 
         try {
 
-            String str1 = FileUtil.readFile2String("src/test/testdoc/orig.txt");
-            String str2 = FileUtil.readFile2String("src/test/testdoc/orig.txt");
+            String str1 = FileUtil.readFile2String("testdoc/orig.txt");
+            String str2 = FileUtil.readFile2String("testdoc/orig.txt");
 
-            System.out.println("6 " + CalculateDuplicateRateCos.calculateDuplicateRateCos(str1, str2));
+            System.out.println("6 " + DuplicateRateCalculator.calculateDuplicateRateCos(str1, str2));
         } catch (ReadStringException e) {
             e.printStackTrace();
         }
@@ -99,10 +97,10 @@ public class test {
 
         try {
 
-            String str1 = FileUtil.readFile2String("src/test/testdoc/orig.txt");
-            String str2 = FileUtil.readFile2String("C:\\测试文本\\empty.txt");
+            String str1 = FileUtil.readFile2String("testdoc/orig.txt");
+            String str2 = FileUtil.readFile2String("testdoc/empty.txt");
 
-            System.out.println("7 " + CalculateDuplicateRateCos.calculateDuplicateRateCos(str1, str2));
+            System.out.println("7 " + DuplicateRateCalculator.calculateDuplicateRateCos(str1, str2));
         } catch (ReadStringException e) {
             e.printStackTrace();
         }
@@ -114,10 +112,25 @@ public class test {
 
         try {
 
-            String str1 = FileUtil.readFile2String("src/test/testdoc/orig.txt");
-            String str2 = FileUtil.readFile2String("src/test/testdoc/notexist.txt");
+            String str1 = FileUtil.readFile2String("testdoc/orig.txt");
+            String str2 = FileUtil.readFile2String("testdoc/notexist.txt");
 
-            System.out.println("8 " + CalculateDuplicateRateCos.calculateDuplicateRateCos(str1, str2));
+            System.out.println("8 " + DuplicateRateCalculator.calculateDuplicateRateCos(str1, str2));
+        } catch (ReadStringException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void test9() {
+
+        try {
+
+            String str1 = FileUtil.readFile2String("testdoc/orig_piece.txt");
+            String str2 = FileUtil.readFile2String("testdoc/无关.txt");
+
+            System.out.println("8 " + DuplicateRateCalculator.calculateDuplicateRateCos(str1, str2));
         } catch (ReadStringException e) {
             e.printStackTrace();
         }

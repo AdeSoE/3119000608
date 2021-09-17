@@ -1,10 +1,19 @@
 package utils;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
-public class CalculateDuplicateRateCos {
+public class DuplicateRateCalculator {
 
+    /**
+     * @description 用余弦计算相似度
+     * @param str1: 文本1
+     * @param str2: 文本2
+     * @return double
+     * @author HiROKi
+     * @date 2021/9/18
+     */
     public static double calculateDuplicateRateCos(String str1, String str2) {
 
         //str -> list
@@ -55,7 +64,7 @@ public class CalculateDuplicateRateCos {
         BigDecimal normMulti = BigDecimal.valueOf(norm1).multiply(BigDecimal.valueOf(norm2));
 
         //cos = (a*b)/(|a|*|b|)
-        return BigDecimal.valueOf(vecMulti).divide(normMulti, 9, BigDecimal.ROUND_HALF_UP).doubleValue();
+        return BigDecimal.valueOf(vecMulti).divide(normMulti, 9, RoundingMode.HALF_UP).doubleValue();
     }
 
 

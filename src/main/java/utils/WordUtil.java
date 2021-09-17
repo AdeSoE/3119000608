@@ -20,13 +20,14 @@ public class WordUtil {
                 term.word).collect(Collectors.toList());
     }
 
-    public static List<String> txtStr2KeywordStrList(String text) {
-        return HanLP.extractKeyword(text, text.length());
-    }
-
-//    剔除非关键字
-    public static void eliminateNonKeyword(List<Term> wordList) {
-        wordList.removeIf(term -> (term.nature.toString().charAt(0) == 'w' || //标点
+    /**
+     * @description 剔除List<Term>非关键字
+     * @param termList:
+     * @author HiROKi
+     * @date 2021/9/18
+     */
+    public static void eliminateNonKeyword(List<Term> termList) {
+        termList.removeIf(term -> (term.nature.toString().charAt(0) == 'w' || //标点
                 term.nature.toString().charAt(0) == 'y' || //语气词
                 term.nature.toString().charAt(0) == 'd' || //语气词
                 term.nature.toString().charAt(0) == 'u' || //助词
@@ -41,18 +42,13 @@ public class WordUtil {
                 term.word.equals("有"))); //有
     }
 
-    public static Map<String, Integer> getKeywordFreq(List<String> allWords, List<String> keywords) {
-
-        Map<String, Integer> freqMap = new HashMap<>();
-
-        for (String s : keywords) {
-            freqMap.put(s, Collections.frequency(allWords, s));
-        }
-
-        return freqMap;
-
-    }
-
+    /**
+     * @description 得到词频HashMap
+     * @param wordList: 单词List
+     * @return Map<String,Integer>
+     * @author HiROKi
+     * @date 2021/9/18
+     */
     public static Map<String, Integer> getWordFreq(List<String> wordList) {
 
         Map<String, Integer> freq = new HashMap<>();
@@ -60,8 +56,6 @@ public class WordUtil {
         wordList.forEach(word ->
                 freq.put(word, freq.computeIfAbsent(word, k -> 0) + 1)
         );
-
-//        sort(freq);
 
         return freq;
     }
