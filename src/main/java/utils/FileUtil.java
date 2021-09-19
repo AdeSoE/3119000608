@@ -46,7 +46,6 @@ public class FileUtil {
      * @description 将文本写入文件
      * @param str: 文本
      * @param txtPath: 写入文件路径
-     * @return void
      * @author HiROKi
      * @date 2021/9/18
      */
